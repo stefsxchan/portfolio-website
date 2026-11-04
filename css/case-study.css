@@ -1,0 +1,360 @@
+/* ==========================================================================
+   Case study pages (Koin first; Knit People will reuse this file)
+   Tokens and layout come from the Figma "Case Study Design System".
+   Reuses fonts, --u, the footer and the focus ring from styles.css.
+
+   Desktop baseline is 1280px. --u (from styles.css) scales desktop measurements between
+   900px and 1280px, so every desktop size below is written as calc(var(--u) * N).
+   Below 900px the mobile layout at the bottom of this file takes over.
+   ========================================================================== */
+
+:root {
+  --cs-bg: #fcf9f5;
+  --cs-card: #ffffff;
+  --cs-text: #000000;
+  --cs-caption: #5e5e5e;
+  --cs-phase: var(--primary);          /* vertical phase titles: the homepage's primary green */
+  --cs-divider: var(--border-default); /* divider line: the homepage divider's colour */
+  --cs-callout: var(--text-secondary); /* the homepage guidelines' philosophy green, #1F6B45 */
+  --cs-shadow: 0 4px 30px 10px rgba(0, 0, 0, 0.05);
+  --cs-gradient: linear-gradient(202.67deg, #fa8f5c 0%, #a182ed 75.128%);
+  --cs-gap: calc(var(--u) * 96);   /* section gap */
+  --cs-mark-turn: 0deg;            /* set by js/case-study.js while scrolling */
+}
+
+body.case-study {
+  background: var(--cs-bg);
+  color: var(--cs-text);
+  position: relative;
+}
+.case-study :where(h1, h2, h3, p, ul, figure) { margin: 0; }
+
+.cs-main { flex: 1 0 auto; width: 100%; }
+
+/* Logomark → homepage (same placement and hover as the 404 page) */
+.cs-logo {
+  position: absolute; left: 36px; top: 34.5px; z-index: 3;
+  width: 32px; height: 44px;
+  transition: transform 0.25s var(--ease-out);
+}
+.cs-logo img { width: 100%; height: 100%; }
+.cs-logo:hover { transform: scale(1.08) rotate(-4deg); }
+
+/* --------------------------------------------------------------------------
+   Type
+   -------------------------------------------------------------------------- */
+
+.cs-hero__title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: calc(var(--u) * 80); line-height: calc(var(--u) * 70);
+}
+.cs-meta__label,
+.cs-card__title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 28px; line-height: 40px;
+}
+.cs-narrative__heading {
+  font-family: var(--font-body); font-weight: 600;
+  font-size: 20px; line-height: 40px;
+}
+.cs-narrative p, .cs-meta__text, .cs-list { font-size: 16px; line-height: 32px; }
+.cs-card__body { font-size: 16px; line-height: 28px; }
+.cs-narrative strong, .cs-card strong { font-weight: 700; }
+.cs-caption { font-size: 14px; line-height: 32px; color: var(--cs-caption); }
+.cs-list { padding-left: 24px; list-style: disc; }
+.cs-list li::marker { font-size: 10px; }  /* Figma's bullets are small */
+
+/* --------------------------------------------------------------------------
+   Hero: title, metadata and phone image share one grid (columns follow the Figma x positions)
+   -------------------------------------------------------------------------- */
+
+.cs-hero {
+  width: 100%; max-width: 1280px; margin-inline: auto;
+  display: grid;
+  grid-template-columns:
+    calc(var(--u) * 123) calc(var(--u) * 169) calc(var(--u) * 117)
+    calc(var(--u) * 342) calc(var(--u) * 44) calc(var(--u) * 309) 1fr;
+  grid-template-rows: auto auto;
+  row-gap: calc(var(--u) * 64);
+  padding-top: calc(var(--u) * 178);
+  padding-bottom: calc(var(--u) * 121);
+}
+.cs-hero__title { grid-column: 2 / 5; grid-row: 1; max-width: calc(var(--u) * 608); }
+.cs-hero__image {
+  grid-column: 6; grid-row: 1 / 3; align-self: start;
+  width: 100%; height: auto; aspect-ratio: 309 / 595;
+  margin-top: calc(var(--u) * 1);
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.05));
+}
+.cs-hero__facts, .cs-hero__about { display: flex; flex-direction: column; gap: 56px; }
+.cs-hero__facts { grid-column: 2; grid-row: 2; }
+.cs-hero__about { grid-column: 4; grid-row: 2; }
+
+.cs-meta { display: flex; flex-direction: column; gap: 8px; }
+.cs-meta--brand { gap: 16px; }
+.cs-meta--role { gap: 12px; }
+.cs-meta--summary { max-width: 305px; }
+
+/* --------------------------------------------------------------------------
+   Phases and dividers
+   Each divider is a full-width bar with a solid page-colour background. It pins to the top of the
+   window while its phase scrolls past, and everything else (text, images, cards) scrolls under it.
+   The next phase's bar takes over when it arrives. Same behaviour on desktop and mobile.
+   -------------------------------------------------------------------------- */
+
+.cs-phases { width: 100%; }
+
+.cs-phase {
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--cs-gap);
+}
+/* An empty last item adds one more gap, so the phase (and with it the pinned bar's container) runs
+   right up to the next phase's bar. The new bar then arrives exactly as the old one leaves. */
+.cs-phase::after { content: ""; height: 0; }
+.cs-phase--intro { gap: calc(var(--u) * 68); }
+.cs-phase > :not(.cs-divider) { position: relative; z-index: 1; }
+
+.cs-divider {
+  position: sticky; top: 0; z-index: 4;
+  width: 100%; height: calc(var(--u) * 56);
+  background: var(--cs-bg);
+  margin-bottom: calc(var(--u) * -56);   /* content starts 96 below the bar's top (56 + 40) */
+}
+.cs-phase--intro > .cs-divider { margin-bottom: 0; }
+.cs-divider__inner {
+  width: calc(var(--u) * 1150); height: 100%; margin-inline: auto;
+  display: flex; align-items: center;
+}
+.cs-divider__title {
+  flex: none; margin-right: 16px;
+  font-family: var(--font-display); font-size: calc(var(--u) * 40); line-height: calc(var(--u) * 40);
+  color: var(--cs-phase); white-space: nowrap;
+}
+/* The line starts after the title (or at the left edge when there is none) and stops about 8px short of the
+   logomark. The mark is 25 wide by 34.5 tall in a 56 box; sideways it reaches 10.75 into the box, so the line
+   ends 2.75 inside the box. That leaves about 13px when the mark is upright and about 5px at a diagonal. */
+.cs-divider__line {
+  flex: 1 1 0; min-width: 0; height: 1px;
+  margin-right: calc(var(--u) * -2.75);
+  background: var(--cs-divider);
+}
+.cs-divider__mark {
+  flex: none; width: calc(var(--u) * 56); height: calc(var(--u) * 56);
+  display: grid; place-items: center;
+}
+.cs-divider__mark img {
+  width: calc(var(--u) * 25); height: calc(var(--u) * 34.5);
+  transform: rotate(var(--cs-mark-turn));
+}
+
+/* --------------------------------------------------------------------------
+   Narrative blocks
+   -------------------------------------------------------------------------- */
+
+.cs-narrative { width: calc(var(--u) * 1002); display: flex; flex-direction: column; }
+.cs-narrative__heading { margin-bottom: 24px; }
+.cs-narrative p + p { margin-top: 32px; }          /* the blank line between paragraphs in Figma */
+.cs-narrative .cs-list + p { margin-top: 24px; }   /* list, then a 24px gap */
+.cs-narrative--tight .cs-narrative__heading { margin-bottom: 0; }
+.cs-narrative--tight { margin-bottom: -72px; } /* the findings cards start 24 below this heading (40 + 24 = 64 instead of 40 + 96) */
+
+.cs-callout {
+  width: calc(var(--u) * 1002); padding-inline: calc(var(--u) * 40);
+  font-weight: 600; font-size: 20px; line-height: 40px; color: var(--cs-callout);
+}
+
+/* --------------------------------------------------------------------------
+   Cards
+   -------------------------------------------------------------------------- */
+
+.cs-card {
+  background: var(--cs-card);
+  box-shadow: var(--cs-shadow);
+  padding: calc(var(--u) * 40);
+  display: flex; flex-direction: column; gap: 24px;
+}
+.cs-card__title, .cs-card__body { margin: 0; }
+.cs-card--finding { padding-block: calc(var(--u) * 24); }
+
+.cs-grid { display: grid; gap: calc(var(--u) * 32); }
+.cs-grid--3 { width: calc(var(--u) * 1201); grid-template-columns: repeat(3, 1fr); }
+.cs-grid--2 { width: calc(var(--u) * 1062); grid-template-columns: repeat(2, 1fr); }
+.cs-card--persona > div { display: flex; flex-direction: column; }
+.cs-card__avatar { width: 110px; height: 110px; border-radius: 50%; }
+
+.cs-stack { display: flex; flex-direction: column; align-items: center; gap: calc(var(--u) * 32); }
+/* Opportunity and finding cards have no gap between title and body in Figma */
+.cs-stack .cs-card { gap: 0; }
+
+/* --------------------------------------------------------------------------
+   Figures: full-bleed white bands, laid out on a 1280 canvas
+   -------------------------------------------------------------------------- */
+
+.cs-band { width: 100%; background: var(--cs-card); }
+.cs-band--matrix, .cs-band--workshop { display: flex; flex-direction: column; align-items: flex-start; }
+.cs-shadow { box-shadow: var(--cs-shadow); }
+
+.cs-band--matrix {
+  align-items: center; padding-block: calc(var(--u) * 23) calc(var(--u) * 61);
+  margin-top: calc(var(--u) * 24);   /* Figma leaves 120 (not 96) above this figure */
+}
+.cs-band--matrix > * { width: calc(var(--u) * 1031); }
+.cs-band--matrix img { height: auto; aspect-ratio: 1031 / 697; object-fit: cover; margin-top: 8px; }
+
+.cs-band--workshop {
+  align-items: center; padding-block: calc(var(--u) * 73) calc(var(--u) * 112);
+}
+.cs-band--workshop > * { width: calc(var(--u) * 1077); position: relative; left: calc(var(--u) * 4.5); } /* Figma offsets it 4.5 right of centre */
+.cs-band--workshop img { height: auto; aspect-ratio: 1077 / 337; margin-top: 8px; }
+
+.cs-collage {
+  position: relative; overflow: hidden;
+  width: 100%; max-width: 1280px; margin-inline: auto;
+  height: calc(var(--u) * 910);
+}
+/* Each item is placed by its caption's top edge and stacks caption, 8px, image, so the image always
+   sits below the caption, even when the caption wraps to two lines at narrower widths.
+   At 1280 the captions are one line, which puts each image 40px below its caption as in Figma. */
+.cs-collage__item {
+  position: absolute;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 8px;
+}
+.cs-collage__item img { max-width: none; object-fit: cover; }
+.cs-collage__item--hmw { left: calc(var(--u) * 58); top: calc(var(--u) * 26); }
+.cs-collage__item--hmw .cs-caption { max-width: calc(var(--u) * 539); }
+.cs-collage__item--hmw img { width: calc(var(--u) * 539); height: calc(var(--u) * 478); }
+.cs-collage__item--journey { z-index: 1; left: calc(var(--u) * 351); top: calc(var(--u) * 331); }
+/* the caption is offset to the right of its image (x754 against x351) */
+.cs-collage__item--journey .cs-caption { margin-left: calc(var(--u) * 403); max-width: calc(var(--u) * 506); }
+.cs-collage__item--journey img { width: calc(var(--u) * 892); height: calc(var(--u) * 942); }
+
+.cs-testing {
+  width: 100%; max-width: 1280px; margin-inline: auto;
+  padding: calc(var(--u) * 40);
+  display: flex; flex-direction: column; gap: calc(var(--u) * 32);
+}
+.cs-testing img { width: 100%; height: auto; }
+
+/* Five concepts: coral-to-lavender gradient, decorative only */
+.cs-concepts {
+  position: relative; width: 100%; padding-bottom: calc(var(--u) * 96);
+}
+.cs-concepts::before {
+  content: ""; position: absolute; left: 0; right: 0; top: calc(var(--u) * 32); bottom: 0;
+  background: var(--cs-gradient);
+}
+.cs-concepts__card {
+  position: relative; width: calc(var(--u) * 497);
+  margin-left: calc((100% - min(100%, 1280px)) / 2 + var(--u) * 660);
+  gap: 16px;
+}
+.cs-concepts__card .cs-card__title { max-width: 417px; }
+
+/* The last phase's closing gap is the space above the footer */
+
+/* --------------------------------------------------------------------------
+   Footer links back to the homepage states (WORK, PLAY, ABOUT)
+   Lateef 24, white, 40 apart, ending 64 from the right edge of the 1280 canvas (Figma has 65; 64 matches the left edge).
+   The copyright and the shared footer bar itself come from styles.css.
+   -------------------------------------------------------------------------- */
+
+.case-study .footer {
+  justify-content: space-between;
+  /* the copyright sits 64 from the left (Figma) instead of the 71 the shared footer uses */
+  padding-left: max(calc(var(--u) * 64), calc((100% - 1280px) / 2 + 64px));   /* % = the page width without a scrollbar */
+  padding-right: max(calc(var(--u) * 64), calc((100% - 1280px) / 2 + 64px));
+}
+.footer__nav { display: flex; align-items: center; gap: calc(var(--u) * 40); }
+.footer__nav a {
+  font-family: var(--font-display); font-size: 24px; line-height: 16px;
+  text-transform: uppercase; color: #fff;
+  transition: color 0.2s var(--ease-out);
+}
+/* Hover and focus are not in Figma: the text turns #444444 on hover, and the focus ring is white because
+   the shared green one would disappear on the green bar. */
+.footer__nav a:hover { color: var(--heading); }
+.footer__nav a:focus-visible { outline-color: #fff; }
+
+/* ==========================================================================
+   Motion: the divider logomark is turned by js/case-study.js; nothing else animates here.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-logo { transition: none; }
+  .cs-logo:hover { transform: none; }
+}
+
+/* ==========================================================================
+   Mobile (below 900px) — not in Figma, proposed for review
+   One column, 24px gutters. Dividers become a pinned horizontal bar with the phase title
+   beside the line. Overlapping figures stack.
+   ========================================================================== */
+
+@media (max-width: 899px) {
+  :root { --cs-gap: 64px; }
+
+  .cs-logo { left: 24px; top: 24px; }
+
+  .cs-hero {
+    display: flex; flex-direction: column; gap: 40px;
+    padding: 104px 24px 56px;
+  }
+  .cs-hero__title { font-size: 52px; line-height: 48px; max-width: none; }
+  .cs-hero__image { align-self: center; width: min(260px, 70vw); margin-top: 0; }
+  .cs-hero__facts, .cs-hero__about { gap: 40px; }
+
+  .cs-phase { gap: var(--cs-gap); }
+  .cs-phase--intro { gap: 40px; }
+
+  .cs-divider { height: 48px; margin-bottom: -24px; }
+  .cs-phase--intro > .cs-divider { margin-bottom: -8px; }
+  .cs-divider__inner { width: calc(100% - 48px); }
+  .cs-divider__title { font-size: 32px; line-height: 32px; }
+  /* the mark is 22 wide by 30 tall in a 40 box: sideways it reaches 5 into the box, so the line ends 3 outside it */
+  .cs-divider__line { margin-right: 3px; }
+  .cs-divider__mark { width: 40px; height: 40px; }
+  .cs-divider__mark img { width: 22px; height: 30px; }
+
+  .cs-narrative, .cs-callout { width: calc(100% - 48px); }
+  .cs-narrative__heading { line-height: 32px; margin-bottom: 16px; }
+  .cs-callout { padding-inline: 0; font-size: 18px; line-height: 32px; }
+  .cs-narrative--tight { margin-bottom: -40px; }
+
+  .cs-card, .cs-card--finding { padding: 24px; }
+  .cs-grid, .cs-grid--3, .cs-grid--2 { width: calc(100% - 48px); grid-template-columns: 1fr; gap: 24px; }
+  .cs-stack { gap: 24px; width: 100%; }
+
+  .cs-band--matrix { padding-block: 32px; }
+  .cs-band--matrix > *, .cs-band--workshop > * { width: calc(100% - 48px); left: 0; }
+  .cs-band--workshop { padding-block: 32px; }
+
+  .cs-collage {
+    height: auto; overflow: visible;
+    padding: 32px 24px; display: flex; flex-direction: column; gap: 32px;
+  }
+  .cs-collage__item, .cs-collage__item--hmw, .cs-collage__item--journey {
+    position: static; align-items: stretch; z-index: auto;
+  }
+  .cs-collage__item .cs-caption, .cs-collage__item--hmw .cs-caption, .cs-collage__item--journey .cs-caption {
+    margin-left: 0; max-width: none;
+  }
+  .cs-collage__item img, .cs-collage__item--hmw img, .cs-collage__item--journey img {
+    width: 100%; height: auto;
+  }
+
+  .cs-testing { padding: 24px; gap: 24px; }
+
+  /* Footer (Figma "Footer" mobile design): the links in one row spread across the width at 32px,
+     then the copyright centred 64px below. The links get 10px of padding above and below (cancelled by
+     negative margins, so the layout stays as drawn) to make each tap target 44px tall. */
+  .case-study .footer {
+    height: auto; flex-direction: column-reverse; align-items: stretch; justify-content: center;
+    gap: 64px; padding: 37px 24px;
+  }
+  .case-study .footer__copy { align-self: center; }
+  .footer__nav { justify-content: space-between; gap: 0; }
+  .footer__nav a { font-size: 32px; line-height: 24px; padding-block: 10px; margin-block: -10px; }
+
+  .cs-concepts { padding-bottom: 64px; }
+  .cs-concepts__card { width: auto; margin-inline: 24px; }
+}

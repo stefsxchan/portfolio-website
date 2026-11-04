@@ -7,7 +7,7 @@ This file is committed to a public repo, so it contains no personal data, contac
 ## Site map
 
 - `index.html` — homepage. One page with three states (Work, Play, About) switched by the URL hash: `#work`, `#play`, `#about`. Work is the default.
-- Work tiles lead to **Case Study** pages (several, one per project): `case-study/koin.html`, `case-study/knit-people.html`. Not built yet.
+- Work tiles lead to **Case Study** pages (several, one per project): `case-study/koin.html` (built, on branch `case-study-koin`), `case-study/knit-people.html` (not built yet).
 - Play tiles lead to **Showcase** pages (several): `showcase/sketches.html`, `showcase/small-talk.html`. Not built yet.
 - `404.html` — "Page coming soon". GitHub Pages serves it for any missing address, so unbuilt pages above show it.
 
@@ -15,7 +15,10 @@ This file is committed to a public repo, so it contains no personal data, contac
 
 - `css/styles.css` — all homepage styles, tokens at the top (`:root`), motion section, mobile section last
 - `css/404.css` — 404 page only (it also loads `styles.css` for tokens, fonts and footer)
+- `css/case-study.css` — all case study pages (it also loads `styles.css` for `--u`, fonts and footer); tokens at the top, mobile section last
 - `js/main.js` — state switching, opening animation timeline, scroll-down hint, email reveal
+- `js/case-study.js` — case study divider behaviour: the logomark turns with scroll
+- `assets/images/koin/`, `assets/icons/koin/` — images and divider/logo SVGs for the Koin page
 - `assets/fonts/` self-hosted woff2 (Lateef 300/400, Mona Sans variable), `assets/icons/` SVGs, `assets/images/` WebP/PNG
 - `assets/originals/` — full-size source images; kept out of git on purpose
 
@@ -34,6 +37,16 @@ That server shows a plain "File not found" for missing pages. To see `404.html` 
 - Fonts: Lateef for display (greeting, nav, headings, project titles), Mona Sans for body text. Bookman JF was tried and rejected.
 - Image tiles: 395 × 353, 32px corners, shadow `0 4px 30px 10px rgba(0,0,0,.05)`. Second tile sits 40px lower.
 - One shared left rail at x71 and content area x384–1190.
+
+## Case study design system (separate from the homepage one)
+
+- Page `#FCF9F5`, cards white, text black `#000`, captions `#5E5E5E`, phase titles the homepage primary green `#2F9A67`, divider line the homepage divider colour `#A8D5BA`, callout paragraph the philosophy green `#1F6B45`. Same fonts as the homepage.
+- Type: page title Lateef 80/70; card and label titles Lateef 28/40; narrative headings Mona Sans SemiBold 20/40; body 16/32 (card copy 16/28); captions Mona Sans regular 14/32 (no italics).
+- Widths on the 1280 canvas: narrative 1002, section dividers 1150, card grids 1201 or 1062. Section gap 96, heading to body 24, grid gap 32, card padding 40.
+- Footer: the shared green bar plus WORK / PLAY / ABOUT links back to the homepage states (`../index.html?skip-intro#work|play|about`), in `css/case-study.css`. Copyright 64 from the left; links turn `#444444` on hover; on mobile the links are 32px in one row spread across the width, with the copyright centred below.
+- Figures are full-bleed white bands; keep each figure's own crop, caption position and offsets. A caption always sits above its image (collage images follow their caption, so they move down if it wraps).
+- Card shadow is the guideline one, `0 4px 30px 10px rgba(0,0,0,.05)`, on every card and figure.
+- Dividers are full-width `position: sticky` bars pinned at the top with a solid page-colour background, the same on desktop and mobile: horizontal green phase title, the divider line after it, and a small spinning logomark at the right (it replaces the Figma star; the line stops about 8px short of it). Everything else scrolls under the bar. The logomark rotation is in `js/case-study.js`.
 
 ## Conventions to keep
 

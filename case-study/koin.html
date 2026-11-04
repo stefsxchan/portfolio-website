@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Koin case study — Stefanie Chan</title>
+  <meta name="description" content="How I led UX discovery to find the next market for Koin, a cashless payments platform for casino gaming: from prioritizing customer segments to testing five product concepts.">
+  <meta name="theme-color" content="#fcf9f5">
+  <link rel="icon" href="../assets/icons/logomark.svg" type="image/svg+xml">
+
+  <!-- Fonts are self-hosted (assets/fonts). @font-face rules live in css/styles.css, which this page reuses for tokens, fonts and the footer -->
+  <link rel="preload" href="../assets/fonts/lateef-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/mona-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/styles.css?v=26">
+  <link rel="stylesheet" href="../css/case-study.css?v=10">
+  <script src="../js/case-study.js?v=3" defer></script>
+</head>
+<body class="case-study">
+  <a class="cs-logo" href="../index.html?skip-intro#work" aria-label="Stefanie Chan — back to homepage">
+    <img src="../assets/icons/logomark.svg" alt="" width="32" height="44">
+  </a>
+
+  <main class="cs-main">
+
+    <!-- ===== Hero ===== -->
+    <section class="cs-hero" aria-labelledby="cs-title">
+      <h1 class="cs-hero__title" id="cs-title">Finding the Next Market for a Gaming Payments Platform</h1>
+
+      <img class="cs-hero__image" src="../assets/images/koin/hero-app.webp" alt="Koin mobile app showing a cashless payments dashboard" width="866" height="1670">
+
+      <div class="cs-hero__facts">
+        <div class="cs-meta cs-meta--brand">
+          <h2 class="cs-meta__label">Brand</h2>
+          <img src="../assets/icons/koin/koin-logo.svg" alt="Koin" width="71" height="20">
+        </div>
+        <div class="cs-meta">
+          <h2 class="cs-meta__label">Timeline</h2>
+          <p class="cs-meta__text">March-July 2024</p>
+        </div>
+        <div class="cs-meta">
+          <h2 class="cs-meta__label">Team</h2>
+          <p class="cs-meta__text">UX, product design, UI, strategy, product management, engineering, project management</p>
+        </div>
+      </div>
+
+      <div class="cs-hero__about">
+        <div class="cs-meta cs-meta--summary">
+          <h2 class="cs-meta__label">Summary</h2>
+          <p class="cs-meta__text">I led the design discovery to uncover new customer segments and set the direction for Koin’s mobile payment app.</p>
+        </div>
+        <div class="cs-meta cs-meta--role">
+          <h2 class="cs-meta__label">Role &amp; Responsibilities</h2>
+          <p class="cs-meta__text">Senior UX Designer</p>
+          <ul class="cs-list">
+            <li>Market Research</li>
+            <li>Stakeholder Interviews</li>
+            <li>Journey Mapping Workshops</li>
+            <li>Concept Ideation</li>
+            <li>Prototyping</li>
+            <li>Usability Testing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="cs-phases">
+
+      <!-- ===== Introduction (divider without a phase title) ===== -->
+      <section class="cs-phase cs-phase--intro" aria-label="Introduction">
+        <div class="cs-divider" data-divider aria-hidden="true">
+          <div class="cs-divider__inner">
+            <span class="cs-divider__line"></span>
+            <span class="cs-divider__mark"><img src="../assets/icons/logomark.svg" alt="" width="25" height="34"></span>
+          </div>
+        </div>
+        <div class="cs-narrative">
+          <p>Koin is a cashless payment platform specially for casino gaming. After a successful pilot, their next challenge was less clear: which new customer segments were worth pursuing, and what would actually make the product valuable enough for them to adopt.</p>
+          <p>I led UX discovery to answer that, working alongside a strategist and a product manager. Over five months, we identified and prioritized promising customer segments, mapped their existing payment behaviour, and turned the strongest opportunities into five testable product concepts. Through usability testing, I validated four of the five concepts, surfaced a wrong assumption about automated deposits, and gave the team an evidence-backed direction for the app's first development phase.</p>
+        </div>
+      </section>
+
+      <!-- ===== Discovery ===== -->
+      <section class="cs-phase" aria-label="Discovery">
+        <div class="cs-divider" data-divider aria-hidden="true">
+          <div class="cs-divider__inner">
+            <span class="cs-divider__title">DISCOVERY</span>
+            <span class="cs-divider__line"></span>
+            <span class="cs-divider__mark"><img src="../assets/icons/logomark.svg" alt="" width="25" height="34"></span>
+          </div>
+        </div>
+
+        <div class="cs-narrative">
+          <h2 class="cs-narrative__heading">The problem: Cash was not just a payment method, but a control device</h2>
+          <p>Casino gambling still runs mostly on cash. Through industry research, I discovered why: cash is private, familiar, and has a built in limit. Once the money someone brought is gone, they know to stop.</p>
+          <p>So Koin’s current solution of simply digitizing payments and making it faster wasn’t going to convince anyone to switch away from cash.</p>
+        </div>
+
+        <p class="cs-callout">For Koin to earn adoption, it needed to offer convenience without reducing a customer’s sense of awareness and control, and it needed the right audience to offer this to. Finding this audience was the real problem to solve.</p>
+
+        <div class="cs-narrative">
+          <h2 class="cs-narrative__heading">Narrowing an overwhelming market</h2>
+          <p>Koin's existing audience was casino gamers, but our stakeholders wanted to go broad, as many types of people could benefit from a cashless payment system.  Everyone visiting Las Vegas was, in theory, a plausible user.</p>
+          <p>I knew that we could not feasibly target every single consumer group. We had to prioritize. To help with this, <strong>I built a consumer group matrix across all of the potential target markets, and listed some of their characteristics</strong> (general demographics, primary intent for visiting, spending habits, etc.). Then <strong>I set a prioritization criteria in order to give the team a strategic way to tier the market</strong>, instead of debating it by vibes.</p>
+          <p>Consumer group prioritization criteria:</p>
+          <ul class="cs-list">
+            <li>money spent</li>
+            <li>volume of transactions</li>
+            <li>technology adoption rate</li>
+            <li>propensity for gaming.</li>
+          </ul>
+          <p>As a group, we tiered the personas from Tier 1 (top priority) down to Tier 4 (low priority).</p>
+        </div>
+
+        <figure class="cs-band cs-band--matrix">
+          <figcaption class="cs-caption">Consumer group matrix used to help prioritize potential target markets</figcaption>
+          <img class="cs-shadow" src="../assets/images/koin/consumer-group-matrix.webp" alt="Consumer group matrix listing every potential target market with its demographics, primary intent for visiting, spending habits and priority tier" width="2406" height="1630">
+        </figure>
+
+        <div class="cs-narrative">
+          <h2 class="cs-narrative__heading">Key decision: saying no to three personas</h2>
+          <p>Business Travellers, Foodies, and High Rollers were groups that the stakeholders really pushed for, and the ones we ended up cutting. Business Travellers were mostly doing convention activities with everything pre-paid, and would likely be too tired to gamble after a long day of networking. Foodies were there for food and shopping, and had vastly different needs. High Rollers wanted high-touch services and had their money logistics established, so a digital payment app wouldn't serve them well. <strong>I had to make the case for narrowing the focus now and branching out later, rather than trying to build a shallow product for everyone at once.</strong></p>
+          <p>That left the following three Tier 1 consumer groups:</p>
+        </div>
+
+        <div class="cs-grid cs-grid--3 cs-grid--personas">
+          <article class="cs-card cs-card--persona">
+            <img class="cs-card__avatar" src="../assets/images/koin/persona-ethan.webp" alt="Portrait of Ethan, the Casual Gambler persona" width="110" height="110">
+            <div>
+              <h3 class="cs-card__title">Ethan the Casual Gambler</h3>
+              <p class="cs-card__body">Gambling is his main recreational activity. He uses it as a way to escape from the stressors of daily life, however, tracking and managing gambling budgets can be difficult.</p>
+            </div>
+          </article>
+          <article class="cs-card cs-card--persona">
+            <img class="cs-card__avatar" src="../assets/images/koin/persona-chris.webp" alt="Portrait of Chris, the Sports Bettor persona" width="110" height="110">
+            <div>
+              <h3 class="cs-card__title">Chris the Sports Bettor</h3>
+              <p class="cs-card__body">Betting on games makes his viewing more interesting and engaging. He wants a straightforward betting process so that he doesn’t miss a good betting opportunity, and can get back to watching the game.</p>
+            </div>
+          </article>
+          <article class="cs-card cs-card--persona">
+            <img class="cs-card__avatar" src="../assets/images/koin/persona-mia.webp" alt="Portrait of Mia, the Entertainment Seeker persona" width="110" height="110">
+            <div>
+              <h3 class="cs-card__title">Mia the Entertainment Seeker</h3>
+              <p class="cs-card__body">Loves participating in live events to soak in the atmosphere. She looks for the easiest and quickest ways to get what she needs, so that she misses as little of the experience as possible.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="cs-narrative">
+          <h2 class="cs-narrative__heading">Validating personas through consumer workshops &amp; journey mapping</h2>
+          <p>To pressure-test these hypothesis personas, I created three online <strong>consumer workshops</strong> (one workshop per consumer groups, five participants each) <strong>to better understand these persona’s relationships with gaming, entertainment, and digital payments</strong>.</p>
+          <p>From the workshops, I synthesized the data and developed customer journey maps in order to better visualize and understand each persona’s current journeys when interacting with their chosen entertainment, including pain points and moments of delight.</p>
+        </div>
+
+        <figure class="cs-band cs-band--workshop">
+          <figcaption class="cs-caption">Working board from the consumer workshops</figcaption>
+          <img class="cs-shadow" src="../assets/images/koin/workshop-board.webp" alt="Online whiteboard from the consumer workshops, with columns of colour-coded sticky notes under a Digital Payments Experience heading" width="3690" height="1154">
+        </figure>
+
+        <div class="cs-narrative">
+          <p>Using these maps, <strong>I asked three questions of each persona's current-state journey: what friction could we remove, what delight could we amplify, and where was there room to create something new?</strong> That produced the following five opportunity areas:</p>
+        </div>
+
+        <div class="cs-stack cs-stack--opportunities">
+          <div class="cs-grid cs-grid--3">
+            <article class="cs-card">
+              <h3 class="cs-card__title">1. Peer-to-peer cost sharing</h3>
+              <p class="cs-card__body">Groups of friends pool money for shared costs (rooms, meals, etc.) and trust each other to settle up later. There’s real risk if someone doesn’t pay their share.</p>
+            </article>
+            <article class="cs-card">
+              <h3 class="cs-card__title">2. Loyalty</h3>
+              <p class="cs-card__body">Entertainment seekers want to maximize their trip while minimizing costs, so they actively hunt for discounts and perks.</p>
+            </article>
+            <article class="cs-card">
+              <h3 class="cs-card__title">3. Being present to experience everything</h3>
+              <p class="cs-card__body">Long lines to place bets or buy food and merch mean people miss parts of the event they came for.</p>
+            </article>
+          </div>
+          <div class="cs-grid cs-grid--2">
+            <article class="cs-card">
+              <h3 class="cs-card__title">4. Removing friction from payment</h3>
+              <p class="cs-card__body">Slow cash-outs, slow account funding, and juggling cash or cards mid-event all pull people out of the moment. As one entertainment seeker told us: "I don't want to have to think about money during or after the festival. I want to have an experience that isn't tainted by money.”</p>
+            </article>
+            <article class="cs-card">
+              <h3 class="cs-card__title">5. Continuing the fun</h3>
+              <p class="cs-card__body">After an event, the energy is still high and people want to keep the fun going at nearby restaurant, bars, and entertainment, but nothing in the current experience helps them do that.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="cs-narrative">
+          <h2 class="cs-narrative__heading">Turning consumer insights to testable concepts</h2>
+          <p>Using the five opportunity areas, <strong>I facilitated an ideation workshop with the team</strong>. This workshop was built around "how might we" prompts tied to each opportunity area. The team placed ideas for solutions and app features under each HMW, and voted on favourites. From there, I translated the strongest ideas into future-state journey maps that show what each persona's experience could look like with the new features in place.</p>
+        </div>
+
+        <div class="cs-band cs-band--collage">
+          <div class="cs-collage">
+            <figure class="cs-collage__item cs-collage__item--hmw">
+              <figcaption class="cs-caption">A HMW statement and brainstorm from ideation workshop</figcaption>
+              <img class="cs-shadow" src="../assets/images/koin/ideation-hmw.webp" alt="A 'how might we' statement with the team's sticky-note brainstorm from the ideation workshop" width="1438" height="1276">
+            </figure>
+            <figure class="cs-collage__item cs-collage__item--journey">
+              <figcaption class="cs-caption">A future-state customer journey map for the Entertainment Seeker persona</figcaption>
+              <img class="cs-shadow" src="../assets/images/koin/future-journey-map.webp" alt="Future-state customer journey map for the Entertainment Seeker persona, showing the new features in place" width="1684" height="1778">
+            </figure>
+          </div>
+        </div>
+
+        <div class="cs-narrative">
+          <p>As a team, we narrowed the new features outlined in the future-state journey maps to five product concepts that we could test and validate, in hopes of including them in a first release of the Koin app. These concepts were prioritized by expected impact, technical effort, and whether other competitor products already solved for that moment (which I checked for through a competitive audit of the digital payment landscape).</p>
+        </div>
+
+        <div class="cs-concepts">
+          <div class="cs-card cs-concepts__card">
+            <h3 class="cs-card__title">The five product concepts selected for initial testing:</h3>
+            <ul class="cs-list">
+              <li>setting budgets so users don't overspend</li>
+              <li>instant cash-out with just-in-time offers</li>
+              <li>instant funding for live betting</li>
+              <li>peer-to-peer expense tracking and settlement</li>
+              <li>member-only entertainment perks.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Design ===== -->
+      <section class="cs-phase" aria-label="Design">
+        <div class="cs-divider" data-divider aria-hidden="true">
+          <div class="cs-divider__inner">
+            <span class="cs-divider__title">DESIGN</span>
+            <span class="cs-divider__line"></span>
+            <span class="cs-divider__mark"><img src="../assets/icons/logomark.svg" alt="" width="25" height="34"></span>
+          </div>
+        </div>
+
+        <div class="cs-narrative">
+          <h2 class="cs-narrative__heading">Designing &amp; testing</h2>
+          <p>Working with the product designer, I turned these concepts into user flows and wireframes. Then working with the UI designer, we brought those to high-fidelity, clickable prototypes.</p>
+          <p>We tested the prototypes with 10 users (five sports bettors, five entertainment seekers, balanced gender split, ages 22–60) in one-hour, one-on-one sessions, to see whether the concepts resonated, and whether people could actually complete their intended tasks.</p>
+        </div>
+
+        <div class="cs-band cs-band--testing">
+          <div class="cs-testing">
+            <img src="../assets/images/koin/testing-user-flows.webp" alt="User flows for the five product concepts" width="1546" height="338">
+            <img src="../assets/images/koin/testing-wireframes.webp" alt="Wireframes for the five product concepts" width="2434" height="772">
+            <img src="../assets/images/koin/testing-prototype-screens.webp" alt="High-fidelity prototype screens of the Koin app used in usability testing" width="2418" height="1210">
+          </div>
+        </div>
+
+        <div class="cs-narrative cs-narrative--tight">
+          <h2 class="cs-narrative__heading">What we found from testing:</h2>
+        </div>
+
+        <div class="cs-stack cs-stack--findings">
+          <div class="cs-grid cs-grid--2 cs-grid--findings">
+            <article class="cs-card cs-card--finding">
+              <h3 class="cs-card__title">Koin felt like a comprehensive platform, not a single-feature tool.</h3>
+              <p class="cs-card__body">Other payment apps people had used, like Venmo, were seen as doing only one thing. Koin felt like it could be a one-stop shop for all of their payment and entertainment needs.</p>
+            </article>
+            <article class="cs-card cs-card--finding">
+              <h3 class="cs-card__title">Auto-deposit didn’t resonate.</h3>
+              <p class="cs-card__body">This was the biggest miss. We assumed automating deposits into a sports betting account would feel convenient, but it directly conflicted with what we had learned back in our discovery: people want to be fully aware of and in control of their money to make informed decisions. Auto deposits could leave them with more money in a gambling account than they intended, increasing risky spending habits.</p>
+            </article>
+          </div>
+          <div class="cs-grid cs-grid--2 cs-grid--findings">
+            <article class="cs-card cs-card--finding">
+              <h3 class="cs-card__title">Expense splitting excited people, but was unfamiliar.</h3>
+              <p class="cs-card__body">Testers were impressed by the concept, but because it wasn't an established mental model yet, they needed more guidance and onboarding than we had built into the prototype.</p>
+            </article>
+            <article class="cs-card cs-card--finding">
+              <h3 class="cs-card__title">People wanted more confirmation before and after moving money</h3>
+              <p class="cs-card__body">Sending or requesting money in the app made people anxious. They wanted more points of confirmation along the way to feel assured and in control.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Outcomes ===== -->
+      <section class="cs-phase" aria-label="Outcomes">
+        <div class="cs-divider" data-divider aria-hidden="true">
+          <div class="cs-divider__inner">
+            <span class="cs-divider__title">OUTCOMES</span>
+            <span class="cs-divider__line"></span>
+            <span class="cs-divider__mark"><img src="../assets/icons/logomark.svg" alt="" width="25" height="34"></span>
+          </div>
+        </div>
+
+        <div class="cs-narrative">
+          <h2 class="cs-narrative__heading">Moving Towards the Build</h2>
+          <p>Through usability testing and synthesis, we validated that 4 of the 5 concepts resonated with users. The fifth concept (auto deposit) came with clear evidence for why it needed rethinking rather than shipping as is. That gave the team a scoped, evidence-backed foundation to move from an open "who else could we serve" question into the app's first development phase.</p>
+          <p>My part of the engagement ended at this point, so I can't speak to what happened after. However, I felt confident that the direction that I handed off was grounded in real testing, not assumptions, and that my work was the foundation for the next phase of the product’s development.</p>
+        </div>
+
+        <div class="cs-narrative">
+          <h2 class="cs-narrative__heading">Reflections</h2>
+          <p>The hardest part of this project wasn't the design work, it was the scoping conversation. Stakeholders wanted to pursue nearly every type of visitor to Las Vegas, and I had to make the case, with evidence, for starting narrow and expanding later, including telling them directly why some of their preferred target groups weren't the right fit yet.</p>
+          <p>Underneath that was a harder truth I had to keep coming back to: a digital payment product isn't automatically solving an urgent problem for most people, since cash already works fine for a lot of the identified use cases. <strong>The real job was finding the specific moments where friction genuinely existed, rather than assuming convenience alone would drive adoption.</strong></p>
+          <p>If I did this project this again, I would push harder for first-person research before locking in personas. We built the initial personas from thin secondary research and anecdotal input from casino operators. There wasn't much existing data on gambling or Vegas-visitor payment behaviour to draw from, so we filled gaps quickly with AI-assisted research and synthesis to keep things moving. It got us to a workable starting point fast, but <strong>I'd rather validate assumptions with real users earlier, instead of backfilling them later.</strong></p>
+          <p><strong>This project showed that I can lead UX through genuine ambiguity: no existing user base, thin research, and a business question ("what market next?"), rather than through a defined feature brief.</strong> It also showed that I'm strongest when facilitating cross-functional workshops (journey mapping, ideation, prioritization) that get strategy, product, and design pointed at the same target.</p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copy">© 2026 · Stefanie Chan</p>
+    <nav class="footer__nav" aria-label="Back to the homepage">
+      <a href="../index.html?skip-intro#work">Work</a>
+      <a href="../index.html?skip-intro#play">Play</a>
+      <a href="../index.html?skip-intro#about">About</a>
+    </nav>
+  </footer>
+</body>
+</html>
