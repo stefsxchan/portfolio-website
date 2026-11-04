@@ -389,10 +389,10 @@ button.contact__link:hover { background-color: rgba(47, 154, 103, 0.12); }
    Timeline (seconds from page load); js/main.js has the matching OPENING_HOLD:
      0.2 / 1.0 / 2.0   words 1, 2, 3 start fading in (1.0s fade) and sliding in from the left (1.2s slide)
      3.0               word 3 fully visible
-     3.7               hold ends (OPENING_HOLD): the three words fade out over 1s, which starts "settled"
-     +0.6 (4.3)        "Hey, I'm Stef!" starts rising in (1.5s)
-     +1.4 (5.1)        statement + contact start rising in, and the scroll arrow appears (--statement-delay)
-     +2.8 (6.5)        tiles / About sections fade up (set in js/main.js) */
+     3.4               hold ends (OPENING_HOLD): the three words fade out over 1s, which starts "settled"
+     +0.6 (4.0)        "Hey, I'm Stef!" starts rising in (1.5s)
+     +1.4 (4.8)        statement + contact start rising in, and the scroll arrow appears (--statement-delay)
+     +2.8 (6.2)        tiles / About sections fade up (set in js/main.js) */
 .js .hero__word { opacity: 0; }
 /* Each word runs two animations: [1] a fade, [2] a small slide in from the left.
    --d is the word's start delay. The slide keeps running (uninterrupted) if the

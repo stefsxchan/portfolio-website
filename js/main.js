@@ -16,9 +16,9 @@
   //   200 / 1000 / 2000  words 1, 2, 3 start fading in (each also slides in from the left)
   //   3000               word 3 is fully visible (starts 2000 + 1000 fade-in)
   //   3200               word 3 has finished sliding (2000 + 1200 slide)
-  //   3700               OPENING_HOLD: the three lines start fading out, and the
+  //   3400               OPENING_HOLD: the three lines start fading out, and the
   //                      greeting / statement / contact / scroll arrow sequence begins
-  // Hold before the fade-out = OPENING_HOLD minus 3000 (word 3 fully visible) = 700ms.
+  // Hold before the fade-out = OPENING_HOLD minus 3000 (word 3 fully visible) = 400ms.
   // If you change the word start delays or the fade-in / slide times in the CSS, update this too.
   const OPENING_HOLD = 3400;
 
