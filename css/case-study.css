@@ -393,3 +393,47 @@ html.cs-lightbox-open { overflow: hidden; }
   display: grid; place-items: center;
 }
 .cs-lightbox__close:focus-visible { outline-color: #fff; }
+
+/* ==========================================================================
+   Back to top: a floating button, bottom right. Same style as the homepage's scroll-down arrow
+   (green circle, white chevron, same shadow and hover colour) but pointing up. It fades in once the visitor
+   is more than a screen down and fades out when the footer comes into view.
+   Not in Figma, proposed for review.
+   ========================================================================== */
+
+.cs-top {
+  position: fixed; right: 24px; bottom: 24px; z-index: 5;
+  width: 32px; height: 32px; padding: 0;
+  display: grid; place-items: center;
+  border: 0; border-radius: 50%;
+  background: var(--primary); color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  opacity: 0; visibility: hidden; transform: translateY(12px);
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out), visibility 0s 0.3s, background-color 0.2s;
+}
+.cs-top.is-visible {
+  opacity: 1; visibility: visible; transform: translateY(0);
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out), visibility 0s, background-color 0.2s;
+}
+.cs-top svg { width: 16px; height: 16px; }
+.cs-top:hover { background: var(--word-1); }
+.cs-top:hover svg { animation: cs-top-nudge 0.9s ease-in-out infinite; }
+.cs-top:focus-visible { outline-offset: 4px; border-radius: 50%; }
+.cs-hero__title:focus { outline: none; }  /* the title takes focus after "back to top", for keyboard and screen reader users */
+
+@keyframes cs-top-nudge {
+  0%, 100% { transform: translateY(2px); }
+  50%      { transform: translateY(-5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-top { transition: none; }
+  .cs-top:hover svg { animation: none; }
+}
+
+@media (max-width: 899px) {
+  /* 44px so it is easy to tap */
+  .cs-top { width: 44px; height: 44px; right: 16px; bottom: 16px; }
+  .cs-top svg { width: 20px; height: 20px; }
+}

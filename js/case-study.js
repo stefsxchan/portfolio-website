@@ -92,3 +92,39 @@
     });
   });
 })();
+
+/* Back to top: the button fades in once the visitor is more than a screen down, and out again when the footer
+ * is in view (a green button would disappear on the green footer). One tap scrolls smoothly to the top and moves
+ * focus to the page title so keyboard and screen reader users start from the top too. */
+(function () {
+  var button = document.getElementById('cs-top');
+  var footer = document.querySelector('.footer');
+  var title = document.getElementById('cs-title');
+  if (!button) return;
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var queued = false;
+
+  function update() {
+    queued = false;
+    var pastFirstScreen = window.scrollY > window.innerHeight;
+    var footerInView = footer ? footer.getBoundingClientRect().top < window.innerHeight : false;
+    var show = pastFirstScreen && !footerInView;
+    button.hidden = false;
+    button.classList.toggle('is-visible', show);
+    button.tabIndex = show ? 0 : -1;
+    button.setAttribute('aria-hidden', show ? 'false' : 'true');
+  }
+
+  function queue() {
+    if (!queued) { queued = true; window.requestAnimationFrame(update); }
+  }
+
+  button.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+    if (title) title.focus({ preventScroll: true });
+  });
+  window.addEventListener('scroll', queue, { passive: true });
+  window.addEventListener('resize', queue);
+  update();
+})();

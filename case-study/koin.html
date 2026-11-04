@@ -12,8 +12,8 @@
   <link rel="preload" href="../assets/fonts/lateef-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/mona-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../css/styles.css?v=27">
-  <link rel="stylesheet" href="../css/case-study.css?v=13">
-  <script src="../js/case-study.js?v=5" defer></script>
+  <link rel="stylesheet" href="../css/case-study.css?v=14">
+  <script src="../js/case-study.js?v=6" defer></script>
 </head>
 <body class="case-study">
   <a class="cs-logo" href="../index.html?skip-intro#work" aria-label="Stefanie Chan — back to homepage">
@@ -24,7 +24,7 @@
 
     <!-- ===== Hero ===== -->
     <section class="cs-hero" aria-labelledby="cs-title">
-      <h1 class="cs-hero__title" id="cs-title">Finding the Next Market for a Gaming Payments Platform</h1>
+      <h1 class="cs-hero__title" id="cs-title" tabindex="-1">Finding the Next Market for a Gaming Payments Platform</h1>
 
       <img class="cs-hero__image" src="../assets/images/koin/hero-app.webp" alt="Koin mobile app showing a cashless payments dashboard" width="866" height="1670">
 
@@ -303,6 +303,10 @@
 
     </div>
   </main>
+
+  <button class="cs-top" id="cs-top" type="button" aria-label="Back to top" hidden>
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+  </button>
 
   <footer class="footer">
     <p class="footer__copy">© 2026 · Stefanie Chan</p>
