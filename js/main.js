@@ -172,9 +172,22 @@
   });
   window.addEventListener('popstate', () => showState(stateFromHash()));
 
+  // Skip the opening entirely (set by the ?skip-intro flag; the class is added in <head>)
+  function skipIntroNow() {
+    introDone = true;
+    hintReady = true;
+    hero.dataset.phase = 'settled';
+    panels[current].classList.add('is-revealed');
+    updateHint();
+    // Tidy the address bar: keep the hash, drop ?skip-intro
+    history.replaceState(null, '', location.pathname + location.hash);
+  }
+
   // Boot
   showState(stateFromHash(), { animate: false });
-  if (reduceMotion) {
+  if (document.documentElement.classList.contains('skip-intro')) {
+    skipIntroNow();
+  } else if (reduceMotion) {
     finishIntro();
   } else {
     window.setTimeout(finishIntro, OPENING_HOLD);

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page coming soon — Stefanie Chan</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#fcfff7">
+
+  <!-- GitHub Pages serves this file at ANY missing URL (e.g. /case-study/koin.html), so paths
+       must not be relative to the current URL. <base> points them back at the site root.
+       If the site lives at /portfolio-website/ (a GitHub project site), that prefix is kept. -->
+  <script>
+    (function () {
+      var repo = 'portfolio-website';
+      var inRepo = location.pathname.split('/')[1] === repo;
+      document.write('<base href="' + (inRepo ? '/' + repo + '/' : '/') + '">');
+    })();
+  </script>
+
+  <link rel="icon" href="assets/icons/logomark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/lateef-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/lateef-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/mona-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css?v=26">
+  <link rel="stylesheet" href="css/404.css">
+</head>
+<body class="notfound">
+  <a class="notfound__logo" href="index.html?skip-intro#work" aria-label="Stefanie Chan — back to homepage">
+    <img src="assets/icons/logomark.svg" alt="" width="32" height="44">
+  </a>
+
+  <main class="notfound__main">
+    <h1 class="notfound__title">Page coming soon</h1>
+    <p class="notfound__subtitle">Good things take time (but Stef's on it!)</p>
+    <a class="notfound__link" href="index.html?skip-intro#work">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+      return home
+    </a>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copy">© 2026 · Stefanie Chan</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+/* 404 / "Page coming soon" — reuses the tokens, fonts and footer from styles.css */
+
+.notfound { position: relative; }
+
+.notfound__logo {
+  position: absolute; left: 36px; top: 34.5px;
+  width: 32px; height: 44px;
+  transition: transform 0.25s var(--ease-out);
+}
+.notfound__logo img { width: 100%; height: 100%; }
+.notfound__logo:hover { transform: scale(1.08) rotate(-4deg); }
+
+.notfound__main {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 120px 24px;
+}
+
+.notfound__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(64px, 12vw, 150px);
+  line-height: 1;
+  color: var(--primary);
+  animation: rise-in 1s var(--ease-out) both;
+}
+.notfound__subtitle {
+  margin-top: 24px;
+  max-width: 720px;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.1;
+  color: var(--text-primary);
+  animation: rise-in 1s var(--ease-out) 0.2s both;
+}
+.notfound__link {
+  margin-top: 40px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 4px 8px;
+  font-size: 16px; line-height: 32px; font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: underline; text-decoration-color: var(--border-default); text-underline-offset: 6px;
+  animation: rise-in 1s var(--ease-out) 0.4s both;
+  transition: color 0.2s var(--ease-out), text-decoration-color 0.2s var(--ease-out);
+}
+.notfound__link svg { transition: transform 0.25s var(--ease-out); }
+.notfound__link:hover { color: var(--primary); text-decoration-color: var(--primary); }
+.notfound__link:hover svg { transform: translateX(-4px); }

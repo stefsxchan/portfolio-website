@@ -13,9 +13,29 @@
   <link rel="preload" href="assets/fonts/lateef-latin-300-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/mona-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 
-  <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="css/styles.css?v=18">
-  <script src="js/main.js?v=18" defer></script>
+  <script>
+    document.documentElement.classList.add('js');
+    // The opening animation is skipped (homepage shown finished) when:
+    //  1. the address has ?skip-intro, e.g. index.html?skip-intro#work, or
+    //  2. the visitor arrives from another page of this site (case study, showcase, 404, ...),
+    //     including via the browser back button or a plain link to the homepage.
+    // A reload (or a visit from another site / a typed address) plays the opening as usual.
+    (function () {
+      var skip = /[?&]skip-intro(=|&|$)/.test(location.search);
+      if (!skip && document.referrer) {
+        try {
+          var ref = new URL(document.referrer);
+          var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+          var isReload = nav && nav.type === 'reload';
+          var samePage = ref.pathname === location.pathname || (ref.pathname.replace(/index\.html$/, '') === location.pathname.replace(/index\.html$/, ''));
+          skip = ref.origin === location.origin && !samePage && !isReload;
+        } catch (e) {}
+      }
+      if (skip) document.documentElement.classList.add('skip-intro');
+    })();
+  </script>
+  <link rel="stylesheet" href="css/styles.css?v=26">
+  <script src="js/main.js?v=20" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
