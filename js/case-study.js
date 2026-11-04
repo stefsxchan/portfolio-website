@@ -31,3 +31,64 @@
   window.addEventListener('scroll', queue, { passive: true });
   update();
 })();
+
+/* Tap to enlarge: links marked data-zoom open their image in a full-screen <dialog>.
+ * Close with the button, the Escape key, or a click outside the image. Focus goes back to the link. */
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('[data-zoom]'));
+  if (!links.length || typeof HTMLDialogElement === 'undefined') return; // the link then just opens the image file
+
+  var root = document.documentElement;
+  var dialog, scroller, image;
+
+  function build() {
+    if (dialog) return;
+    dialog = document.createElement('dialog');
+    dialog.className = 'cs-lightbox';
+    dialog.setAttribute('aria-label', 'Enlarged image');
+
+    var close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'cs-lightbox__close';
+    close.setAttribute('aria-label', 'Close enlarged image');
+    close.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+    scroller = document.createElement('div');
+    scroller.className = 'cs-lightbox__scroll';
+    image = document.createElement('img');
+    image.className = 'cs-lightbox__img';
+    scroller.appendChild(image);
+
+    dialog.appendChild(scroller);
+    dialog.appendChild(close);
+    document.body.appendChild(dialog);
+
+    close.addEventListener('click', shut);
+    scroller.addEventListener('click', function (e) { if (e.target === scroller) shut(); });
+    // 'cancel' fires straight away on Escape and 'close' after any close, so the page scroll lock is always released
+    dialog.addEventListener('cancel', unlock);
+    dialog.addEventListener('close', unlock);
+  }
+
+  function unlock() { root.classList.remove('cs-lightbox-open'); }
+  function shut() { unlock(); dialog.close(); }
+
+  function open(link) {
+    build();
+    var thumb = link.querySelector('img');
+    image.src = link.getAttribute('href');
+    image.alt = thumb ? thumb.alt : '';
+    if (thumb) { image.width = thumb.getAttribute('width'); image.height = thumb.getAttribute('height'); }
+    root.classList.add('cs-lightbox-open');
+    dialog.showModal();
+    scroller.scrollTop = 0; scroller.scrollLeft = 0;
+  }
+
+  links.forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return; // let "open in new tab" work
+      e.preventDefault();
+      open(link);
+    });
+  });
+})();

@@ -433,10 +433,11 @@ button.contact__link:hover { background-color: rgba(47, 154, 103, 0.12); }
 .js .panel.is-revealed [data-reveal] { animation: rise-in 0.7s var(--ease-out) forwards; }
 .js .panel.is-revealed [data-reveal]:nth-child(2) { animation-delay: 0.15s; }
 
-/* Skipped opening (?skip-intro): everything is already in its final state, no animation */
+/* Skipped opening (?skip-intro, or arriving from another page of the site): only the OPENING HERO is already in
+   its final state, with no animation. The Work / Play / About tiles and sections still fade up as normal
+   (.panel [data-reveal] above), for new and returning visitors alike. */
 .skip-intro .hero__word { opacity: var(--word-faint-opacity) !important; animation: none !important; translate: none !important; }
-.skip-intro .hero__greeting, .skip-intro .hero__statement, .skip-intro .contact,
-.skip-intro .panel [data-reveal] { opacity: 1 !important; animation: none !important; transform: none !important; }
+.skip-intro .hero__greeting, .skip-intro .hero__statement, .skip-intro .contact { opacity: 1 !important; animation: none !important; transform: none !important; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

@@ -172,12 +172,14 @@
   });
   window.addEventListener('popstate', () => showState(stateFromHash()));
 
-  // Skip the opening entirely (set by the ?skip-intro flag; the class is added in <head>)
+  // Skip the opening HERO animation (set by the ?skip-intro flag or by arriving from another page; the class is added in <head>)
   function skipIntroNow() {
     introDone = true;
     hintReady = true;
     hero.dataset.phase = 'settled';
-    panels[current].classList.add('is-revealed');
+    // Only the opening hero is skipped. The tiles / sections of the current state still fade up,
+    // starting straight away because the hero is already settled.
+    reveal(panels[current], true);
     updateHint();
     // Tidy the address bar: keep the hash, drop ?skip-intro
     history.replaceState(null, '', location.pathname + location.hash);
