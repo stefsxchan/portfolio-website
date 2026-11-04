@@ -402,8 +402,8 @@ html.cs-lightbox-open { overflow: hidden; }
    ========================================================================== */
 
 .cs-top {
-  position: fixed; right: 24px; bottom: 24px; z-index: 5;
-  width: 32px; height: 32px; padding: 0;
+  position: fixed; left: 24px; bottom: 24px; z-index: 5;
+  width: 48px; height: 48px; padding: 0;
   display: grid; place-items: center;
   border: 0; border-radius: 50%;
   background: var(--primary); color: #fff;
@@ -416,7 +416,7 @@ html.cs-lightbox-open { overflow: hidden; }
   opacity: 1; visibility: visible; transform: translateY(0);
   transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out), visibility 0s, background-color 0.2s;
 }
-.cs-top svg { width: 16px; height: 16px; }
+.cs-top svg { width: 24px; height: 24px; }
 .cs-top:hover { background: var(--word-1); }
 .cs-top:hover svg { animation: cs-top-nudge 0.9s ease-in-out infinite; }
 .cs-top:focus-visible { outline-offset: 4px; border-radius: 50%; }
@@ -434,6 +434,6 @@ html.cs-lightbox-open { overflow: hidden; }
 
 @media (max-width: 899px) {
   /* 44px so it is easy to tap */
-  .cs-top { width: 44px; height: 44px; right: 16px; bottom: 16px; }
+  .cs-top { width: 44px; height: 44px; left: 16px; bottom: 16px; }
   .cs-top svg { width: 20px; height: 20px; }
 }
