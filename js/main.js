@@ -181,7 +181,13 @@
     // starting straight away because the hero is already settled.
     reveal(panels[current], true);
     updateHint();
-    // Tidy the address bar: keep the hash, drop ?skip-intro
+    // ?to=content (the footer links on case study pages): land just below the divider line, so the chosen
+    // Work / Play / About section is on screen without scrolling. Without it the page opens at the top.
+    if (/[?&]to=content(&|$)/.test(location.search)) {
+      const divider = document.querySelector('.hero__divider');
+      if (divider) window.scrollTo(0, Math.max(0, Math.round(divider.getBoundingClientRect().top + window.scrollY)));
+    }
+    // Tidy the address bar: keep the hash, drop ?skip-intro and ?to=content
     history.replaceState(null, '', location.pathname + location.hash);
   }
 
