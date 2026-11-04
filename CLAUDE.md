@@ -59,5 +59,6 @@ That server shows a plain "File not found" for missing pages. To see `404.html` 
 - **Opening animation timings:** the timeline is documented at the top of the "Opening sequence" block in `css/styles.css` and at `OPENING_HOLD` in `js/main.js`. Change both together.
 - **Motion:** respect `prefers-reduced-motion`. Hover and focus states use the shared ease and green accent.
 - **Images:** use WebP for photos and large images; give every `<img>` width/height and meaningful alt text.
+- **Page titles:** every page's `<title>` (the browser tab text) starts with `Stef Chan | `, then the page name: `Stef Chan | UX Designer` on the homepage, `Stef Chan | Koin case study`, `Stef Chan | Page coming soon`. Keep this on every new page, including placeholders.
 - **Cache busting:** `index.html` and `404.html` link CSS/JS with `?v=N`; bump it when those files change (no build step).
 - **Branches:** one feature branch per page (e.g. `homepage`, `case-study-koin`), merged into `main` after review. `main` is what GitHub Pages publishes.

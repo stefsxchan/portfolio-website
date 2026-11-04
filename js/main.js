@@ -3,7 +3,6 @@
 
   const STATES = ['work', 'play', 'about'];
   const DEFAULT_STATE = 'work';
-  const TITLES = { work: 'Work', play: 'Play', about: 'About' };
 
   const hero = document.getElementById('hero');
   const panels = Object.fromEntries(
@@ -46,7 +45,7 @@
       else a.removeAttribute('aria-current');
     });
 
-    document.title = `${TITLES[state]} — Stefanie Chan, UX Designer`;
+    document.title = 'Stef Chan | UX Designer';
 
     // Tiles/sections only animate once the opening has finished.
     if (introDone) reveal(panels[state], animate);
