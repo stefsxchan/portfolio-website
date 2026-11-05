@@ -251,6 +251,66 @@ body.case-study {
 }
 .cs-concepts__card .cs-card__title { max-width: 417px; }
 
+/* --------------------------------------------------------------------------
+   RBC page: banner hero, interview quote, groups of related blocks, evidence bands
+   (From the Figma "RBC DSNet — Revised case study": title and metadata row, then a full-width hero image.)
+   -------------------------------------------------------------------------- */
+
+.cs-hero--banner {
+  display: flex; flex-direction: column; align-items: center;
+  row-gap: calc(var(--u) * 64);
+  padding-top: calc(var(--u) * 168); padding-bottom: calc(var(--u) * 96);
+}
+.cs-hero--banner .cs-hero__title { width: calc(var(--u) * 1002); max-width: none; }
+.cs-hero__meta { width: calc(var(--u) * 1002); display: flex; gap: calc(var(--u) * 32); }
+.cs-hero__meta .cs-meta { flex: none; }
+.cs-hero__meta .cs-meta--brand   { width: calc(var(--u) * 156); gap: 8px; }
+.cs-hero__meta .cs-meta--summary { width: calc(var(--u) * 278); }
+.cs-hero__meta .cs-meta--role    { width: calc(var(--u) * 279); gap: 8px; }
+.cs-hero__meta .cs-meta--team    { width: calc(var(--u) * 190); }
+.cs-meta__scope { margin-top: 16px; }   /* 8 + 16 = the 24 between the role and its list in Figma */
+.cs-meta--brand img { width: 148px; height: auto; }
+.cs-hero__banner {
+  display: block; width: 100%; max-width: 1280px; height: auto;
+  aspect-ratio: 1280 / 773; object-fit: cover;
+}
+
+/* Interview quotation: green rule on the left, philosophy-green text, caption underneath */
+.cs-quote {
+  margin-top: 24px; padding: 24px calc(var(--u) * 40);
+  border-left: 4px solid var(--cs-divider);
+  display: flex; flex-direction: column; gap: 16px;
+}
+.cs-quote blockquote { margin: 0; }
+.cs-narrative .cs-quote p { font-weight: 600; font-size: 20px; line-height: 40px; color: var(--cs-callout); }
+.cs-copy { margin-top: 24px; }
+.cs-numbered { margin: 32px 0 0; padding-left: 24px; list-style: decimal; }
+.cs-numbered li + li { margin-top: 32px; }
+.cs-numbered li::marker { font-weight: 700; }
+.cs-numbered li p { margin-left: -24px; }   /* the paragraph under each numbered title sits flush left */
+
+/* Related blocks that sit closer together than the 96 between sections (24 or 32, as in Figma) */
+.cs-group { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+.cs-group--loose { gap: 32px; }
+.cs-narrative--heading-only .cs-narrative__heading { margin-bottom: 0; }
+
+.cs-cards { width: calc(var(--u) * 1002); display: flex; flex-direction: column; gap: calc(var(--u) * 32); }
+.cs-cards__row { width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: calc(var(--u) * 32); }
+.cs-grid--roadmap { width: calc(var(--u) * 1150); grid-template-columns: repeat(3, 1fr); }
+/* these cards put 16px between title and body */
+.cs-cards .cs-card, .cs-cards__row .cs-card, .cs-grid--roadmap .cs-card { gap: 16px; }
+
+/* Evidence figure: full-bleed white band, caption above a fixed-width image (offsets are from Figma, as on the Koin page) */
+.cs-band--evidence {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  padding-block: calc(var(--u) * 24) calc(var(--u) * 40);
+}
+.cs-band--evidence > * { width: calc(var(--u) * 835); position: relative; left: calc(var(--u) * var(--cs-off, 0)); }
+.cs-band--affinity { --cs-off: -10.5; }
+.cs-band--mvp      { --cs-off: 2.5; }
+.cs-band--styles   { --cs-off: -22.5; }
+.cs-band--final > * { width: calc(var(--u) * 1140); }
+
 /* The last phase's closing gap is the space above the footer */
 
 /* --------------------------------------------------------------------------
@@ -358,6 +418,25 @@ body.case-study {
 
   .cs-concepts { padding-bottom: 64px; }
   .cs-concepts__card { width: auto; margin-inline: 24px; }
+
+  /* RBC page */
+  .cs-hero--banner { align-items: stretch; row-gap: 40px; padding: 104px 0 56px; }
+  .cs-hero--banner .cs-hero__title { width: auto; margin-inline: 24px; }
+  .cs-hero__meta { width: auto; margin-inline: 24px; flex-direction: column; gap: 40px; }
+  .cs-hero__meta .cs-meta, .cs-hero__meta .cs-meta--summary { width: auto; }
+  .cs-hero__banner { aspect-ratio: 4 / 3; max-width: none; }
+
+  .cs-quote { padding: 16px 0 16px 20px; }
+  .cs-narrative .cs-quote p { font-size: 18px; line-height: 32px; }
+
+  .cs-group, .cs-group--loose { gap: 24px; }
+  .cs-cards, .cs-grid--roadmap { width: calc(100% - 48px); gap: 24px; }
+  .cs-grid--roadmap { grid-template-columns: 1fr; }
+  .cs-cards__row { grid-template-columns: 1fr; gap: 24px; }
+
+  .cs-band--evidence { padding-block: 24px 32px; }
+  .cs-band--evidence > * { width: calc(100% - 48px); left: 0; }
+  .cs-band--final > * { width: calc(100% - 32px); }
 }
 
 /* ==========================================================================

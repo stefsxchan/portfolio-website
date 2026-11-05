@@ -7,7 +7,7 @@ This file is committed to a public repo, so it contains no personal data, contac
 ## Site map
 
 - `index.html` — homepage. One page with three states (Work, Play, About) switched by the URL hash: `#work`, `#play`, `#about`. Work is the default.
-- Work tiles lead to **Case Study** pages (several, one per project): `case-study/koin.html` (built, on branch `case-study-koin`), `case-study/knit-people.html` (placeholder that redirects to `404.html`).
+- Work tiles lead to **Case Study** pages (several, one per project): `case-study/koin.html` (built, on branch `case-study-koin`), `case-study/rbc.html` (built, on branch `case-study-rbc`; second Work tile, "Royal Bank of Canada"). `case-study/knit-people.html` is a placeholder that redirects to `404.html`; it is no longer linked from the homepage.
 - Play tiles lead to **Showcase** pages (several): `showcase/sketches.html`, `showcase/small-talk.html`. Not built yet: each is a placeholder file that redirects to `404.html` (the "Page coming soon" design). Replace the placeholder file when the page is built, keeping the address.
 - `404.html` — "Page coming soon". GitHub Pages serves it for any missing address, so any other missing address shows it too. The unbuilt pages above are placeholder files that redirect there, so they also work on servers that don't serve `404.html` (such as the local one below).
 
@@ -19,6 +19,7 @@ This file is committed to a public repo, so it contains no personal data, contac
 - `js/main.js` — state switching, opening animation timeline, scroll-down hint, email reveal
 - `js/case-study.js` — case study divider behaviour: the logomark turns with scroll
 - `assets/images/koin/`, `assets/icons/koin/` — images and divider/logo SVGs for the Koin page
+- `assets/images/rbc/`, `assets/icons/rbc/` — images and brand logo for the RBC page; `assets/images/rbc-tile-*.webp` are the two homepage tile screenshots
 - `assets/fonts/` self-hosted woff2 (Lateef 300/400, Mona Sans variable), `assets/icons/` SVGs, `assets/images/` WebP/PNG
 - `assets/originals/` — full-size source images; kept out of git on purpose
 
@@ -47,7 +48,7 @@ That server shows a plain "File not found" for missing pages. To see `404.html` 
 - Tap to enlarge: the matrix, workshop board and the three testing images are links (`data-zoom`) that `js/case-study.js` opens in a full-screen `<dialog>` viewer (image at least 1400px wide, scroll or pinch to pan). Without JavaScript the link opens the image file.
 - Back to top: a floating green circle (48px, 44px on mobile) bottom left, shown after one screen of scrolling and hidden near the footer; it is built in `js/case-study.js` and `css/case-study.css` and documented in the Figma guidelines ("Back to top").
 - Figures are full-bleed white bands; keep each figure's own crop, caption position and offsets. A caption always sits above its image (collage images follow their caption, so they move down if it wraps).
-- Card shadow is the guideline one, `0 4px 30px 10px rgba(0,0,0,.05)`, on every card and figure.
+- Card shadow is the guideline one, `0 4px 30px 10px rgba(0,0,0,.05)`, on every card. Images don't all get it: the Koin consumer group matrix and workshop board, and all the RBC evidence images, are flat; the two Koin collage images keep it (`.cs-shadow`).
 - Dividers are full-width `position: sticky` bars pinned at the top with a solid page-colour background, the same on desktop and mobile: horizontal green phase title, the divider line after it, and a small spinning logomark at the right (it replaces the Figma star; the line stops about 8px short of it). Everything else scrolls under the bar. The logomark rotation is in `js/case-study.js`.
 
 ## Conventions to keep

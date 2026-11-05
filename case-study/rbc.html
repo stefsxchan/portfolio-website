@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stef Chan | RBC case study</title>
+  <meta name="description" content="How I led research, feature roadmapping and design to turn RBC Dominion Securities’ internal website from a content dump into a daily tool: from user interviews and an MVP matrix workshop to final designs.">
+  <meta name="theme-color" content="#fcf9f5">
+  <link rel="icon" href="../assets/icons/logomark.svg" type="image/svg+xml">
+
+  <!-- Fonts are self-hosted (assets/fonts). @font-face rules live in css/styles.css, which this page reuses for tokens, fonts and the footer -->
+  <link rel="preload" href="../assets/fonts/lateef-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/mona-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/styles.css?v=28">
+  <link rel="stylesheet" href="../css/case-study.css?v=20">
+  <script src="../js/case-study.js?v=6" defer></script>
+</head>
+<body class="case-study">
+  <a class="cs-logo" href="../index.html?skip-intro#work" aria-label="Stefanie Chan — back to homepage">
+    <img src="../assets/icons/logomark.svg" alt="" width="32" height="44">
+  </a>
+
+  <main class="cs-main">
+
+    <!-- ===== Hero ===== -->
+    <section class="cs-hero cs-hero--banner" aria-labelledby="cs-title">
+      <h1 class="cs-hero__title" id="cs-title" tabindex="-1">Turning an Intranet from a Content Dump into a Daily Tool</h1>
+
+      <div class="cs-hero__meta">
+        <div class="cs-meta cs-meta--brand">
+          <h2 class="cs-meta__label">Brand</h2>
+          <img src="../assets/icons/rbc/rbc-logo.svg" alt="RBC Wealth Management" width="148" height="51">
+        </div>
+        <div class="cs-meta cs-meta--summary">
+          <h2 class="cs-meta__label">Summary</h2>
+          <p class="cs-meta__text">I led research, feature roadmapping, and design to improve the user experience of RBC Dominion Securities’ internal website and align it with the bank’s latest branding.</p>
+        </div>
+        <div class="cs-meta cs-meta--role">
+          <h2 class="cs-meta__label">Role &amp; responsibilities</h2>
+          <p class="cs-meta__text">UX &amp; Visual Design</p>
+          <p class="cs-meta__text cs-meta__scope">User research, Workshop facilitation, Wireframing, Visual Design</p>
+        </div>
+        <div class="cs-meta cs-meta--team">
+          <h2 class="cs-meta__label">Team</h2>
+          <p class="cs-meta__text">UX, business analyst, engineering</p>
+        </div>
+      </div>
+
+      <img class="cs-hero__banner" src="../assets/images/rbc/hero.webp" alt="An iMac on a desk showing the redesigned Dominion Securities intranet homepage, with a news carousel, news updates and upcoming events" width="1600" height="948">
+    </section>
+
+    <div class="cs-phases">
+
+      <!-- ===== Research ===== -->
+      <section class="cs-phase" aria-label="Research">
+        <div class="cs-divider" data-divider aria-hidden="true">
+          <div class="cs-divider__inner">
+            <span class="cs-divider__title">RESEARCH</span>
+            <span class="cs-divider__line"></span>
+            <span class="cs-divider__mark"><img src="../assets/icons/logomark.svg" alt="" width="25" height="34"></span>
+          </div>
+        </div>
+
+        <div class="cs-narrative">
+          <h2 class="cs-narrative__heading">The problem: an abundance of content</h2>
+          <p>A user’s daily struggle to find content: Users visit the website daily and they struggle to find the information they need due to the sheer volume of poorly organized content. This is a constant source of frustration and disruption of their workflow.</p>
+
+          <figure class="cs-quote">
+            <blockquote>
+              <p>“When I can’t find something using [the search bar], I’ll ask another BA [bank administrator] instead. If they don’t know, they’ll ask someone else. It can become a chain of asking people across different [bank] branches. It’s quicker than trying to hunt for it on DSNet.”</p>
+            </blockquote>
+            <figcaption class="cs-caption">- Bank Administrator</figcaption>
+          </figure>
+
+          <div class="cs-copy">
+            <p>This struggle to find content was due to a two-fold problem:</p>
+            <ol class="cs-numbered">
+              <li>
+                <strong>Ineffective content management</strong>
+                <p>Content is created by multiple groups, and there is no central guideline on how to label, tag, or structure content. This results in a jumble of content with no consistent way to search for it.</p>
+              </li>
+              <li>
+                <strong>Pushing out a mix of content that went unread</strong>
+                <p>The content consisted of important company announcements, system updates, company culture building, and more. Much of the content on the website wasn’t being read by the employees, thus leading to them missing important announcements and information.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="cs-group">
+          <div class="cs-narrative cs-narrative--heading-only">
+            <h2 class="cs-narrative__heading">The goal: make information discovery less painful</h2>
+          </div>
+          <div class="cs-cards">
+            <div class="cs-cards__row">
+              <article class="cs-card">
+                <h3 class="cs-card__title">User goal</h3>
+                <p class="cs-card__body">Find documents and information needed to do their work efficiently and accurately, and stay updated on deadlines and system updates or outages.</p>
+              </article>
+              <article class="cs-card">
+                <h3 class="cs-card__title">Business goal</h3>
+                <p class="cs-card__body">Drive more views to the content they push out, and help users form the habit of checking the website for company announcements and updates, instead of relying on weekly email newsletters to stay informed.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-group">
+          <div class="cs-narrative">
+            <h2 class="cs-narrative__heading">Mapping user interviews into insights</h2>
+            <p>I conducted five 30-minute user interviews with each user group, and then synthesized the data into affinity maps.</p>
+          </div>
+          <figure class="cs-band cs-band--evidence cs-band--affinity">
+            <figcaption class="cs-caption">Affinity map created with quotations and insights from user interviews.</figcaption>
+            <a class="cs-zoom" href="../assets/images/rbc/affinity-map.webp" data-zoom aria-haspopup="dialog"><img src="../assets/images/rbc/affinity-map.webp" alt="Affinity map of colour-coded sticky notes from the user interviews, grouped into homepage usage patterns, organization of information, search usage, favourites and quick links, and ManagerNet" width="1600" height="979"></a>
+          </figure>
+        </div>
+
+        <div class="cs-group cs-group--loose">
+          <div class="cs-narrative">
+            <p>Through the mapping exercise, I discovered a few key insights:</p>
+          </div>
+          <div class="cs-cards">
+            <article class="cs-card cs-card--finding">
+              <h3 class="cs-card__title">Search blocks productivity</h3>
+              <p class="cs-card__body">The website’s search feature was the most used feature, and the primary issue of concern among users. Users relied heavily on the website’s search bar to find the information they needed, however, the search results would be irrelevant, out of date, or lead to broken links. This was the biggest blocker to the users’ productivity.</p>
+            </article>
+            <article class="cs-card cs-card--finding">
+              <h3 class="cs-card__title">Homepage content is largely ignored</h3>
+              <p class="cs-card__body">The content on the website’s homepage is largely ignored because it is usually irrelevant to the user’s day-to-day tasks. Users rarely have time to peruse culture building articles, and mainly look at system update announcements.</p>
+            </article>
+            <article class="cs-card cs-card--finding">
+              <h3 class="cs-card__title">Different users need different content</h3>
+              <p class="cs-card__body">There are many different types of users who all find different types of content useful, so only a portion of content is relevant to each group.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="cs-group cs-group--loose">
+          <div class="cs-narrative">
+            <h2 class="cs-narrative__heading">Identifying opportunities</h2>
+            <p>Based on the research insights, I came up with a number of opportunities for an improved user experience.</p>
+          </div>
+          <div class="cs-cards">
+            <article class="cs-card">
+              <h3 class="cs-card__title">Make search accessible</h3>
+              <p class="cs-card__body">The search bar is currently hidden behind two mouse clicks. Make it more accessible by having it always shown at the top of the screen, and only one click away. Also, improve the search results by adding advanced search filters (e.g. sort by date, relevance, document type, etc.), and adding publish dates and high-information text previews.</p>
+            </article>
+            <div class="cs-cards__row">
+              <article class="cs-card">
+                <h3 class="cs-card__title">Prioritize useful updates</h3>
+                <p class="cs-card__body">Remove minimally used content from the homepage and allocate more space to the system and news updates.</p>
+              </article>
+              <article class="cs-card">
+                <h3 class="cs-card__title">Enable customization</h3>
+                <p class="cs-card__body">Allow for the customization of content on the homepage.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Design ===== -->
+      <section class="cs-phase" aria-label="Design">
+        <div class="cs-divider" data-divider aria-hidden="true">
+          <div class="cs-divider__inner">
+            <span class="cs-divider__title">DESIGN</span>
+            <span class="cs-divider__line"></span>
+            <span class="cs-divider__mark"><img src="../assets/icons/logomark.svg" alt="" width="25" height="34"></span>
+          </div>
+        </div>
+
+        <div class="cs-group cs-group--loose">
+          <div class="cs-narrative">
+            <h2 class="cs-narrative__heading">Aligning business and engineering on a three-phase roadmap</h2>
+            <p>Taking all of the opportunities that I saw, <strong>I facilitated an MVP Matrix Workshop with the business and development teams.</strong> I led the teams to chart each idea on an impact vs. effort matrix, and then through creating a structured roadmap on how we wanted to approach the website redesign. The plan included:</p>
+          </div>
+
+          <div class="cs-grid cs-grid--roadmap">
+            <article class="cs-card">
+              <h3 class="cs-card__title">Phase 1 · Quick wins</h3>
+              <p class="cs-card__body">Ideas that were easy to implement, yet still had a decent impact toward the overall user experience. This phase 1 was created because the business was extremely keen on getting changes out the door ASAP.</p>
+            </article>
+            <article class="cs-card">
+              <h3 class="cs-card__title">Phase 2 · Redesign</h3>
+              <p class="cs-card__body">A full redesign of the website homepage, as well as changes to the search function.</p>
+            </article>
+            <article class="cs-card">
+              <h3 class="cs-card__title">Phase 3 · Content structure</h3>
+              <p class="cs-card__body">Structural changes to the way website content is created and organized.</p>
+            </article>
+          </div>
+
+          <figure class="cs-band cs-band--evidence cs-band--mvp">
+            <figcaption class="cs-caption">MVP Matrix workshop to prioritize ideas</figcaption>
+            <a class="cs-zoom" href="../assets/images/rbc/mvp-matrix.webp" data-zoom aria-haspopup="dialog"><img src="../assets/images/rbc/mvp-matrix.webp" alt="MVP matrix workshop board plotting ideas by impact against effort, with colour-coded sticky notes for Phase 1 quick wins, Phase 2 design work, search improvements and other ideas, plus a parking lot" width="1600" height="1138"></a>
+          </figure>
+        </div>
+
+        <div class="cs-group">
+          <div class="cs-narrative">
+            <h2 class="cs-narrative__heading">Putting it all together</h2>
+            <p>With our redesign roadmap laid out, I worked on consolidating the disparate styles throughout the website, and creating designs of the phase 1 ideas for the website, basing my designs off of their existing design styles and components.</p>
+          </div>
+          <figure class="cs-band cs-band--evidence cs-band--styles">
+            <figcaption class="cs-caption">Below: style sheet created to consolidate existing website styles</figcaption>
+            <a class="cs-zoom" href="../assets/images/rbc/style-sheet.webp" data-zoom aria-haspopup="dialog"><img src="../assets/images/rbc/style-sheet.webp" alt="DSNet text and colour styles sheet listing the heading and body type styles and the colour palette of greys, dark blue, bright blue and white" width="1640" height="1893"></a>
+          </figure>
+        </div>
+
+        <div class="cs-group">
+          <div class="cs-narrative cs-narrative--heading-only">
+            <h2 class="cs-narrative__heading">Final designs</h2>
+          </div>
+          <figure class="cs-band cs-band--evidence cs-band--final">
+            <a class="cs-zoom" href="../assets/images/rbc/final-designs.webp" data-zoom aria-haspopup="dialog"><img src="../assets/images/rbc/final-designs.webp" alt="The final designs: the redesigned homepage with a carousel, news updates, system updates and upcoming events beside the ManagerNet page with side navigation, news, helpful links and resource highlights" width="1600" height="1155"></a>
+          </figure>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <button class="cs-top" id="cs-top" type="button" aria-label="Back to top" hidden>
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+  </button>
+
+  <footer class="footer">
+    <p class="footer__copy">© 2026 · Stefanie Chan</p>
+    <nav class="footer__nav" aria-label="Back to the homepage">
+      <a href="../index.html?skip-intro&to=content#work">Work</a>
+      <a href="../index.html?skip-intro&to=content#play">Play</a>
+      <a href="../index.html?skip-intro&to=content#about">About</a>
+    </nav>
+  </footer>
+</body>
+</html>
